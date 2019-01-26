@@ -1,6 +1,6 @@
 package com.xm.xmvp.di.module;
 
-import com.xm.xmvp.di.module.util.BusProvider;
+import com.xm.xmvp.di.module.impl.BusProvider;
 
 import javax.inject.Singleton;
 

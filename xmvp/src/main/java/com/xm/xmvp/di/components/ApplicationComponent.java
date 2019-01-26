@@ -17,14 +17,12 @@ import dagger.Component;
  * summary:
  */
 @Singleton
-@Component(
-        modules = {
+@Component(modules = {
                 ApplicationModule.class,
                 EventModule.class,
                 ExecutorModule.class,
                 NetworkModule.class,
-                UtilModule.class
-        }
+                UtilModule.class}
 )
 public interface ApplicationComponent extends Providers.ApplicationComponentProvider{
     ActivityComponent.Builder activityComponentBuilder();

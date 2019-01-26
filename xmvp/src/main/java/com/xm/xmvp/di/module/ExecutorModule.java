@@ -1,9 +1,9 @@
 package com.xm.xmvp.di.module;
 
-import com.xm.xmvp.di.module.util.PostExecutionThread;
-import com.xm.xmvp.di.module.util.ThreadExecutor;
-import com.xm.xmvp.di.module.util.ThreadExecutorImpl;
-import com.xm.xmvp.di.module.util.UIThreadImpl;
+import com.xm.xmvp.di.module.impl.PostExecutionThread;
+import com.xm.xmvp.di.module.impl.ThreadExecutor;
+import com.xm.xmvp.di.module.impl.ThreadExecutorImpl;
+import com.xm.xmvp.di.module.impl.UIThreadImpl;
 
 import javax.inject.Singleton;
 

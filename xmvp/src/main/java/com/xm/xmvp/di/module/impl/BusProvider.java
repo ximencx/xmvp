@@ -1,4 +1,4 @@
-package com.xm.xmvp.di.module.util;
+package com.xm.xmvp.di.module.impl;
 
 import com.squareup.otto.Bus;
 import com.squareup.otto.ThreadEnforcer;
