@@ -1,0 +1,68 @@
+package com.xm.xmvp.di.module.util;
+
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.Future;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+
+import javax.inject.Inject;
+
+/**
+ * created on 2019/1/26.
+ * author:wangkezhi
+ * email:45436460@qq.com
+ * summary:
+ */
+public class ThreadExecutorImpl implements ThreadExecutor {
+
+    private static final int INITIAL_POOL_SIZE = 3;
+    private static final int MAX_POOL_SIZE = 10;
+
+    // Sets the amount of time an idle thread waits before terminating
+    private static final int KEEP_ALIVE_TIME = 10;
+
+    // Sets the Time Unit to seconds
+    private static final TimeUnit KEEP_ALIVE_TIME_UNIT = TimeUnit.SECONDS;
+
+    @NonNull
+    private final ThreadPoolExecutor threadPoolExecutor;
+
+    @Inject
+    public ThreadExecutorImpl() {
+        BlockingQueue<Runnable> workQueue = new LinkedBlockingQueue<>();
+        ThreadFactory threadFactory = new JobThreadFactory();
+        this.threadPoolExecutor = new ThreadPoolExecutor(INITIAL_POOL_SIZE, MAX_POOL_SIZE,
+                KEEP_ALIVE_TIME, KEEP_ALIVE_TIME_UNIT, workQueue, threadFactory);
+    }
+
+    @Override
+    public void execute(@Nullable Runnable runnable) {
+        if (runnable == null) {
+            throw new IllegalArgumentException("Runnable to execute cannot be null");
+        }
+        this.threadPoolExecutor.execute(runnable);
+    }
+
+    public Future<?> submit(@Nullable Runnable runnable) {
+        if (runnable == null) {
+            throw new IllegalArgumentException("Runnable to submit cannot be null");
+        }
+        return this.threadPoolExecutor.submit(runnable);
+    }
+
+    private static class JobThreadFactory implements ThreadFactory {
+        private static final String THREAD_NAME = "android_";
+        private final int counter = 0;
+
+        @NonNull
+        @Override
+        public Thread newThread(@NonNull Runnable runnable) {
+            return new Thread(runnable, THREAD_NAME + counter);
+        }
+    }
+}
