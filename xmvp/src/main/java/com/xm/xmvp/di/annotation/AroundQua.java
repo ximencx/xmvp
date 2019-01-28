@@ -23,5 +23,5 @@ public @interface AroundQua {
      *
      * @return 全局通用限定符
      */
-    @NonNull @DiConfig.QuaType String value() default DiConfig.QUA_ACTIVITY;
+    @NonNull @DiConfig.QuaType String value();
 }

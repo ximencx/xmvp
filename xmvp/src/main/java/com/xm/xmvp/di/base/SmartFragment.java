@@ -40,5 +40,7 @@ public class SmartFragment extends Fragment {
         this.fragmentComponent = null;
         super.onDestroyView();
     }
+
+
 }
 

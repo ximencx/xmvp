@@ -6,10 +6,10 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 
-import com.xm.xmvp.di.base.SmartFragment;
 import com.xm.xmvp.di.annotation.AroundQua;
 import com.xm.xmvp.di.annotation.DiConfig;
 import com.xm.xmvp.di.annotation.PerFragment;
+import com.xm.xmvp.di.base.SmartFragment;
 
 import dagger.Module;
 import dagger.Provides;

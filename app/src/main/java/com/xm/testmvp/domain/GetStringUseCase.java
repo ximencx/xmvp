@@ -1,5 +1,6 @@
 package com.xm.testmvp.domain;
 
+import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.xm.testmvp.data.repository.ImplMainRepository;
@@ -9,7 +10,6 @@ import com.xm.xmvp.usecase.BaseUseCase;
 
 import javax.inject.Inject;
 
-import androidx.annotation.NonNull;
 
 /**
  * created on 2019/1/26.

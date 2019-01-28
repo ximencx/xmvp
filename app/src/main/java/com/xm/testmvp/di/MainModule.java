@@ -20,6 +20,7 @@ public abstract class MainModule {
     public abstract IMainRepository provideMainRepository(ImplMainRepository repository);
 
     public interface Provider {
-        IMainRepository punchRepository();
+
+        IMainRepository mainRepository();
     }
 }

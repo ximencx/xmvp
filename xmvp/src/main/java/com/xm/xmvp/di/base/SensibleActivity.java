@@ -12,7 +12,7 @@ import com.xm.xmvp.vu.Vu;
  * email:45436460@qq.com
  * summary:支持mvp+dagger2
  */
-public abstract class SensibleActivity<V extends Vu.FragmentVu> extends SmartActivity implements Presenter{
+public abstract class SensibleActivity<V extends Vu.ActivityVu> extends SmartActivity implements Presenter{
 
     private V vu = null;
 

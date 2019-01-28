@@ -12,7 +12,7 @@ import dagger.Component;
  * summary:
  */
 @PerActivity
-@Component(modules = {MainModule.class, ActivityModule.class},
+@Component(modules = {ActivityModule.class},
         dependencies = MainComponent.class)
 public interface MainActivityComponent extends MainProviders.MainActivityComponentProvider {
 

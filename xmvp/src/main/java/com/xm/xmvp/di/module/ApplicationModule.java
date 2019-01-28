@@ -5,7 +5,6 @@ import android.app.AlarmManager;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 
 import com.xm.xmvp.application.AndroidApplication;
@@ -64,7 +63,8 @@ public class ApplicationModule {
         return ((NotificationManager) this.application.getSystemService(Context.NOTIFICATION_SERVICE));
     }
 
-    public interface Provider{
+    public interface Provider {
+
         @AroundQua(DiConfig.QUA_APPLICATION)
         Context applicationContext();
 

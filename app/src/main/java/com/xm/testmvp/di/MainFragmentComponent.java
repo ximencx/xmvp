@@ -12,9 +12,8 @@ import dagger.Component;
  * summary:
  */
 @PerFragment
-@Component(modules = {FragmentModule.class, FragmentModule.class},
+@Component(modules = {FragmentModule.class},
         dependencies = MainActivityComponent.class)
 public interface MainFragmentComponent extends MainProviders.MainFragmentComponentProvider {
-
 
 }

@@ -8,6 +8,7 @@ import com.xm.xmvp.di.annotation.AroundQua;
 import com.xm.xmvp.di.annotation.ConnSecurityQua;
 import com.xm.xmvp.di.annotation.DiConfig;
 
+import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import dagger.Module;

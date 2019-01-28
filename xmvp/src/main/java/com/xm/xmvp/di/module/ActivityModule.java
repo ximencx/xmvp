@@ -60,6 +60,7 @@ public class ActivityModule {
     }
 
     public interface Provider {
+
         @AroundQua(DiConfig.QUA_ACTIVITY)
         Activity activity();
 

@@ -25,5 +25,7 @@ import dagger.Component;
                 UtilModule.class}
 )
 public interface ApplicationComponent extends Providers.ApplicationComponentProvider{
+
     ActivityComponent.Builder activityComponentBuilder();
+
 }
