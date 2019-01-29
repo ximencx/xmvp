@@ -13,6 +13,6 @@ import dagger.Component;
 @PerMain
 @Component(modules = {MainModule.class, StoreModule.class},
         dependencies = ApplicationComponent.class)
-public interface MainComponent {
+public interface MainComponent extends MainProviders.MainComponentProvider {
 
 }
