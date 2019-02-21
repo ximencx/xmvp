@@ -16,7 +16,9 @@ import com.xm.xmvp.vu.Vu;
  * email:45436460@qq.com
  * summary:
  */
-public abstract class CementFragment extends Fragment {
+public abstract class CementFragment<V extends Vu.FragmentVu> extends Fragment implements Presenter {
+
+    private V vu = null;
 
     @Nullable
     @Override
@@ -58,14 +60,28 @@ public abstract class CementFragment extends Fragment {
         return presenter;
     }
 
-    public abstract void preMvpBinding(Bundle savedInstanceState);
 
-    public abstract void afterMvpBinding(Bundle savedInstanceState);
+    @Override
+    public void bindVu(@Nullable Vu vu) {
+        if (vu == null) {
+            return;
+        }
+        //noinspection unchecked
+        this.vu = ((V) vu);
+    }
+
+    public V getVu() {
+        return vu;
+    }
 
     @Nullable
     public abstract Vu.FragmentVu provideVu();
 
     @Nullable
     public abstract Presenter providePresenter();
+
+    public abstract void preMvpBinding(Bundle savedInstanceState);
+
+    public abstract void afterMvpBinding(Bundle savedInstanceState);
 }
 

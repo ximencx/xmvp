@@ -10,15 +10,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.xm.xmvp.presenter.Presenter;
+
 /**
  * created on 2019/1/26.
  * author:wangkezhi
  * email:45436460@qq.com
  * summary:
  */
-public abstract class AdornFragment extends Fragment implements Vu.ActivityVu {
+public abstract class AdornFragment<P extends Presenter> extends Fragment implements Vu.ActivityVu {
 
     private Activity activity;
+
+    private P presenter;
+
+    @Override
+    public void bindPresenter(@Nullable Presenter presenter) {
+        this.presenter = (P) presenter;
+    }
 
     @Override
     public void bindActivity(@NonNull Activity activity) {
@@ -27,6 +36,10 @@ public abstract class AdornFragment extends Fragment implements Vu.ActivityVu {
 
     public Activity getHostActivity() {
         return this.activity;
+    }
+
+    public P getPresenter() {
+        return this.presenter;
     }
 
     @Nullable

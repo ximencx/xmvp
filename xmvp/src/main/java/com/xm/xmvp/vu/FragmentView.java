@@ -11,15 +11,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.xm.xmvp.presenter.Presenter;
+
 /**
  * created on 2019/1/26.
  * author:wangkezhi
  * email:45436460@qq.com
  * summary:
  */
-public abstract class FragmentView implements Vu.FragmentVu {
+public abstract class FragmentView<P extends Presenter> implements Vu.FragmentVu {
 
     private Fragment fragment;
+
+    private P presenter;
+
+    @Override
+    public void bindPresenter(@Nullable Presenter presenter) {
+        this.presenter = (P) presenter;
+    }
 
     @Override
     public void bindFragment(@NonNull Fragment fragment) {
@@ -57,6 +66,10 @@ public abstract class FragmentView implements Vu.FragmentVu {
             return this.fragment.getActivity();
         }
         return null;
+    }
+
+    public P getPresenter() {
+        return this.presenter;
     }
 
     public Context getContext() {

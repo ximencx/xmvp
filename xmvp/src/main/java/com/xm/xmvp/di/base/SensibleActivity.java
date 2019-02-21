@@ -12,9 +12,9 @@ import com.xm.xmvp.vu.Vu;
  * email:45436460@qq.com
  * summary:支持mvp+dagger2
  */
-public abstract class SensibleActivity<V extends Vu.ActivityVu> extends SmartActivity implements Presenter{
+public abstract class SensibleActivity<V extends Vu.ActivityVu> extends SmartActivity implements Presenter {
 
-    private V vu = null;
+    private V vu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,14 +82,14 @@ public abstract class SensibleActivity<V extends Vu.ActivityVu> extends SmartAct
         return vu;
     }
 
-    public abstract void preMvpBinding(Bundle savedInstanceState);
-
-    public abstract void afterMvpBinding(Bundle savedInstanceState);
-
     @Nullable
     public abstract Vu.ActivityVu provideVu();
 
     @Nullable
     public abstract Presenter providePresenter();
+
+    public abstract void preMvpBinding(Bundle savedInstanceState);
+
+    public abstract void afterMvpBinding(Bundle savedInstanceState);
 }
 

@@ -13,7 +13,9 @@ import com.xm.xmvp.vu.Vu;
  * email:45436460@qq.com
  * summary:
  */
-public abstract class CementActivity extends AppCompatActivity {
+public abstract class CementActivity<V extends Vu.ActivityVu> extends AppCompatActivity implements Presenter {
+
+    private V vu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,14 +61,27 @@ public abstract class CementActivity extends AppCompatActivity {
         return new Vu.ActivityVu[]{activityVu};
     }
 
-    public abstract void preMvpBinding(Bundle savedInstanceState);
+    @Override
+    public void bindVu(@Nullable Vu vu) {
+        if (vu == null) {
+            return;
+        }
+        //noinspection unchecked
+        this.vu = ((V) vu);
+    }
 
-    public abstract void afterMvpBinding(Bundle savedInstanceState);
-
+    public V getVu() {
+        return vu;
+    }
 
     @Nullable
     public abstract Vu.ActivityVu provideVu();
 
     @Nullable
     public abstract Presenter providePresenter();
+
+    public abstract void preMvpBinding(Bundle savedInstanceState);
+
+    public abstract void afterMvpBinding(Bundle savedInstanceState);
+
 }

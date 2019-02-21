@@ -1,11 +1,8 @@
 package com.xm.testmvp.domain;
 
-import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.xm.testmvp.data.repository.ImplMainRepository;
-import com.xm.xmvp.di.module.impl.PostExecutionThread;
-import com.xm.xmvp.di.module.impl.ThreadExecutor;
 import com.xm.xmvp.usecase.BaseUseCase;
 
 import javax.inject.Inject;
@@ -22,9 +19,7 @@ public class GetStringUseCase implements BaseUseCase {
     private final ImplMainRepository repository;
 
     @Inject
-    public GetStringUseCase(@NonNull ThreadExecutor threadExecutor,
-                            @NonNull PostExecutionThread postExecutionThread,
-                            ImplMainRepository repository) {
+    public GetStringUseCase(ImplMainRepository repository) {
         this.repository = repository;
     }
 

@@ -72,14 +72,14 @@ public abstract class SensibleFragment<V extends Vu.FragmentVu> extends SmartFra
         return vu;
     }
 
-    public abstract void preMvpBinding(Bundle savedInstanceState);
-
-    public abstract void afterMvpBinding(Bundle savedInstanceState);
-
     @Nullable
     public abstract Vu.FragmentVu provideVu();
 
     @Nullable
     public abstract Presenter providePresenter();
+
+    public abstract void preMvpBinding(Bundle savedInstanceState);
+
+    public abstract void afterMvpBinding(Bundle savedInstanceState);
 }
 

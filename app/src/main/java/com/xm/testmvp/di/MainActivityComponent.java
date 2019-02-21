@@ -1,5 +1,6 @@
 package com.xm.testmvp.di;
 
+import com.xm.testmvp.main.MainActivity;
 import com.xm.xmvp.di.annotation.PerActivity;
 import com.xm.xmvp.di.module.ActivityModule;
 
@@ -16,4 +17,5 @@ import dagger.Component;
         dependencies = MainComponent.class)
 public interface MainActivityComponent extends MainProviders.MainActivityComponentProvider {
 
+    void inject(MainActivity mainActivity);
 }
