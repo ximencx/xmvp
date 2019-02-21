@@ -1,11 +1,11 @@
 package com.xm.testmvp.domain;
 
-import android.util.Log;
-
 import com.xm.testmvp.data.repository.ImplMainRepository;
 import com.xm.xmvp.usecase.BaseUseCase;
 
 import javax.inject.Inject;
+
+import rx.Observable;
 
 
 /**
@@ -14,7 +14,7 @@ import javax.inject.Inject;
  * email:45436460@qq.com
  * summary:
  */
-public class GetStringUseCase implements BaseUseCase {
+public class GetStringUseCase extends BaseUseCase<String> {
 
     private final ImplMainRepository repository;
 
@@ -24,7 +24,7 @@ public class GetStringUseCase implements BaseUseCase {
     }
 
     @Override
-    public void execute() {
-        Log.e("test", repository.getString());
+    public Observable<String> builder() {
+        return Observable.just((String) getParam1() + repository.getString());
     }
 }

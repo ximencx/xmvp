@@ -1,5 +1,6 @@
 package com.xm.xmvpbase.basemvp;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -72,6 +73,10 @@ public abstract class BaseMvpActivity<V extends Vu.ActivityVu> extends AppCompat
 
     public V getVu() {
         return vu;
+    }
+
+    public Activity getActivity() {
+        return this;
     }
 
     @Nullable

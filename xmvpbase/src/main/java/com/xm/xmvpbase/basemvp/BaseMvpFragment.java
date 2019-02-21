@@ -1,5 +1,6 @@
 package com.xm.xmvpbase.basemvp;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -72,6 +73,14 @@ public abstract class BaseMvpFragment<V extends Vu.FragmentVu> extends Fragment 
 
     public V getVu() {
         return vu;
+    }
+
+    public Fragment getFragment() {
+        return this;
+    }
+
+    public Activity getHostActivity() {
+        return this.getActivity();
     }
 
     @Nullable

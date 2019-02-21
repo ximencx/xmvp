@@ -5,6 +5,9 @@ import com.xm.testmvp.di.MainActivityComponent;
 import com.xm.xmvp.di.base.BaseMvpDiActivity;
 import com.xm.xmvpbase.vu.Vu;
 
+import rx.Subscription;
+import rx.subscriptions.CompositeSubscription;
+
 /**
  * created on 2019/1/27.
  * author:wangkezhi
@@ -13,6 +16,7 @@ import com.xm.xmvpbase.vu.Vu;
  */
 public abstract class BaseMainActivity<V extends Vu.ActivityVu> extends BaseMvpDiActivity<V> {
     private MainActivityComponent activityComponent;
+    private CompositeSubscription compositeSubscription;
 
     public MainActivityComponent getMainActivityComponent() {
         if (this.activityComponent == null) {
@@ -21,8 +25,19 @@ public abstract class BaseMainActivity<V extends Vu.ActivityVu> extends BaseMvpD
         return this.activityComponent;
     }
 
+    public void autoDestroy(Subscription subscription) {
+        if (compositeSubscription == null || compositeSubscription.isUnsubscribed()) {
+            compositeSubscription = new CompositeSubscription();
+        }
+        compositeSubscription.add(subscription);
+    }
+
     @Override
     public void onDestroy() {
+        if (compositeSubscription != null && !compositeSubscription.isUnsubscribed()) {
+            compositeSubscription.unsubscribe();
+        }
+        compositeSubscription = null;
         activityComponent = null;
         super.onDestroy();
     }
