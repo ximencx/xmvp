@@ -10,4 +10,6 @@ import com.xm.xmvpbase.presenter.Presenter;
  */
 public interface PresenterMain extends Presenter {
     void onClickBtn1();
+
+    void onClickBtn2();
 }

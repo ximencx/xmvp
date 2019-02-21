@@ -14,7 +14,7 @@ import javax.inject.Inject;
 
 import rx.functions.Action1;
 
-public class MainActivity extends BaseMainActivity<ViewActivityMain> implements PresenterMain {
+public class MainActivity extends BaseMainActivity<VuActivityMain> implements PresenterMain {
 
     @Inject
     GetStringUseCase getStringUseCase;
@@ -43,7 +43,6 @@ public class MainActivity extends BaseMainActivity<ViewActivityMain> implements 
 
     @Override
     public void onClickBtn1() {
-        getVu().showBtn("哈哈");
         autoDestroy(getStringUseCase
                 .setParam1("我是参数")
                 .builder()
@@ -53,5 +52,10 @@ public class MainActivity extends BaseMainActivity<ViewActivityMain> implements 
                         Toast.makeText(getActivity(), s, Toast.LENGTH_LONG).show();
                     }
                 }));
+    }
+
+    @Override
+    public void onClickBtn2() {
+        getVu().showBtn2("哈哈");
     }
 }

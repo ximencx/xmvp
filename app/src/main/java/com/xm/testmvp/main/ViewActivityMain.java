@@ -35,6 +35,7 @@ public class ViewActivityMain extends ActivityView<PresenterMain> implements VuA
             @Override
             public void onClick(View view) {
                 getPresenter().onClickBtn1();
+                getPresenter().onClickBtn2();
             }
         });
     }
@@ -42,6 +43,11 @@ public class ViewActivityMain extends ActivityView<PresenterMain> implements VuA
 
     @Override
     public void showBtn(String st) {
+        btn1.setText(st);
+    }
+
+    @Override
+    public void showBtn2(String st) {
         btn1.setText(st);
     }
 }
