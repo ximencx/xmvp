@@ -6,8 +6,8 @@ import android.support.annotation.Nullable;
 
 import com.xm.testmvp.domain.GetStringUseCase;
 import com.xm.testmvp.presenter.BaseMainActivity;
-import com.xm.xmvp.presenter.Presenter;
-import com.xm.xmvp.vu.Vu;
+import com.xm.xmvpbase.presenter.Presenter;
+import com.xm.xmvpbase.vu.Vu;
 
 import javax.inject.Inject;
 

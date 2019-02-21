@@ -2,8 +2,8 @@ package com.xm.testmvp.di;
 
 import com.xm.testmvp.data.datastore.IMainDataStore;
 import com.xm.testmvp.data.datastore.MainCloudDataStore;
-import com.xm.xmvp.di.annotation.DiConfig;
-import com.xm.xmvp.di.annotation.StoreQua;
+import com.xm.xmvp.di.annotation.qua.DiConfig;
+import com.xm.xmvp.di.annotation.qua.StoreQua;
 
 import dagger.Binds;
 import dagger.Module;

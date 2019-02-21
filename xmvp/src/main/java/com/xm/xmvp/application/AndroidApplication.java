@@ -4,11 +4,10 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
-import com.xm.xmvp.ActivityStack;
+import com.xm.xmvp.di.base.BaseMvpDiActivity;
+import com.xm.xmvpbase.ActivityStack;
 import com.xm.xmvp.BuildConfig;
-import com.xm.xmvp.Utils;
-import com.xm.xmvp.di.base.SmartActivity;
-import com.xm.xmvp.di.base.SmartFragment;
+import com.xm.xmvp.di.base.BaseMvpDiFragment;
 import com.xm.xmvp.di.components.ActivityComponent;
 import com.xm.xmvp.di.components.ApplicationComponent;
 import com.xm.xmvp.di.components.DaggerApplicationComponent;
@@ -102,7 +101,7 @@ public abstract class AndroidApplication extends ForkedApplication{
      * @param activity the activity
      * @return the activity component
      */
-    public ActivityComponent createActivityComponent(@NonNull SmartActivity activity) {
+    public ActivityComponent createActivityComponent(@NonNull BaseMvpDiActivity activity) {
         return this.getApplicationComponent()
                 .activityComponentBuilder()
                 .activityModule(new ActivityModule(activity))
@@ -116,7 +115,7 @@ public abstract class AndroidApplication extends ForkedApplication{
      * @param activityComponent the activity component
      * @return the fragment component
      */
-    public FragmentComponent createFragmentComponent(@NonNull SmartFragment fragment,
+    public FragmentComponent createFragmentComponent(@NonNull BaseMvpDiFragment fragment,
                                                      @NonNull ActivityComponent activityComponent) {
         return activityComponent.fragmentComponentBuilder()
                 .fragmentModule(new FragmentModule(fragment))

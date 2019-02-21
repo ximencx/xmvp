@@ -1,6 +1,6 @@
 package com.xm.testmvp.main;
 
-import com.xm.xmvp.presenter.Presenter;
+import com.xm.xmvpbase.presenter.Presenter;
 
 /**
  * created on 2019/2/21.

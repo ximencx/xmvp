@@ -1,8 +1,5 @@
 package com.xm.testmvp.data.datastore;
 
-import com.xm.xmvp.di.annotation.DiConfig;
-import com.xm.xmvp.di.annotation.StoreQua;
-
 import javax.inject.Inject;
 
 /**

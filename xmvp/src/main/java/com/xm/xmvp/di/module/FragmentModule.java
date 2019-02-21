@@ -6,10 +6,10 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 
-import com.xm.xmvp.di.annotation.AroundQua;
-import com.xm.xmvp.di.annotation.DiConfig;
-import com.xm.xmvp.di.annotation.PerFragment;
-import com.xm.xmvp.di.base.SmartFragment;
+import com.xm.xmvp.di.annotation.qua.AroundQua;
+import com.xm.xmvp.di.annotation.qua.DiConfig;
+import com.xm.xmvp.di.annotation.scope.PerFragment;
+import com.xm.xmvp.di.base.BaseMvpDiFragment;
 
 import dagger.Module;
 import dagger.Provides;
@@ -23,37 +23,37 @@ import dagger.Provides;
 @Module
 public class FragmentModule {
 
-    private final SmartFragment smartFragment;
+    private final BaseMvpDiFragment baseMvpDiFragment;
 
-    public FragmentModule(@NonNull SmartFragment smartFragment) {
-        this.smartFragment = smartFragment;
+    public FragmentModule(@NonNull BaseMvpDiFragment baseMvpDiFragment) {
+        this.baseMvpDiFragment = baseMvpDiFragment;
     }
 
     @PerFragment
     @Provides
     Fragment provideFragment() {
-        return this.smartFragment;
+        return this.baseMvpDiFragment;
     }
 
     @PerFragment
     @Provides
     @AroundQua(DiConfig.QUA_FRAGMENT)
     Bundle provideBundle() {
-        return this.smartFragment.getArguments();
+        return this.baseMvpDiFragment.getArguments();
     }
 
     @PerFragment
     @Provides
     @AroundQua(DiConfig.QUA_FRAGMENT)
     Context provideContext() {
-        return this.smartFragment.getContext();
+        return this.baseMvpDiFragment.getContext();
     }
 
     @PerFragment
     @Provides
     @AroundQua(DiConfig.QUA_FRAGMENT)
     Activity provideActivity() {
-        return this.smartFragment.getActivity();
+        return this.baseMvpDiFragment.getActivity();
     }
 
     public interface Provider {

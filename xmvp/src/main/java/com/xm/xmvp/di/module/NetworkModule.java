@@ -1,18 +1,6 @@
 package com.xm.xmvp.di.module;
 
-import android.content.Context;
-import android.support.annotation.NonNull;
-
-import com.squareup.okhttp.OkHttpClient;
-import com.xm.xmvp.di.annotation.AroundQua;
-import com.xm.xmvp.di.annotation.ConnSecurityQua;
-import com.xm.xmvp.di.annotation.DiConfig;
-
-import javax.inject.Inject;
-import javax.inject.Singleton;
-
 import dagger.Module;
-import dagger.Provides;
 
 /**
  * created on 2019/1/26.

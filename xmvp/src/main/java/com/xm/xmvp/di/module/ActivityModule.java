@@ -7,10 +7,10 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.xm.xmvp.di.base.SmartActivity;
-import com.xm.xmvp.di.annotation.AroundQua;
-import com.xm.xmvp.di.annotation.DiConfig;
-import com.xm.xmvp.di.annotation.PerActivity;
+import com.xm.xmvp.di.base.BaseMvpDiActivity;
+import com.xm.xmvp.di.annotation.qua.AroundQua;
+import com.xm.xmvp.di.annotation.qua.DiConfig;
+import com.xm.xmvp.di.annotation.scope.PerActivity;
 import com.xm.xmvp.di.components.FragmentComponent;
 
 import dagger.Module;
@@ -25,30 +25,30 @@ import dagger.Provides;
 @Module(subcomponents = FragmentComponent.class)
 public class ActivityModule {
 
-    private final SmartActivity smartActivity;
+    private final BaseMvpDiActivity baseMvpDiActivity;
 
-    public ActivityModule(@NonNull SmartActivity smartActivity) {
-        this.smartActivity = smartActivity;
+    public ActivityModule(@NonNull BaseMvpDiActivity baseMvpDiActivity) {
+        this.baseMvpDiActivity = baseMvpDiActivity;
     }
 
     @Provides
     @PerActivity
     @AroundQua(DiConfig.QUA_ACTIVITY)
     Activity provideActivity() {
-        return this.smartActivity;
+        return this.baseMvpDiActivity;
     }
 
     @Provides
     @PerActivity
     @AroundQua(DiConfig.QUA_ACTIVITY)
     Context provideContext() {
-        return this.smartActivity;
+        return this.baseMvpDiActivity;
     }
 
     @PerActivity
     @Provides
     Intent provideIntent() {
-        return this.smartActivity.getIntent();
+        return this.baseMvpDiActivity.getIntent();
     }
 
     @Provides

@@ -1,6 +1,6 @@
 package com.xm.xmvp.di.components;
 
-import com.xm.xmvp.di.annotation.PerFragment;
+import com.xm.xmvp.di.annotation.scope.PerFragment;
 import com.xm.xmvp.di.module.FragmentModule;
 
 import dagger.Subcomponent;

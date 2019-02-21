@@ -2,8 +2,8 @@ package com.xm.testmvp.presenter;
 
 import com.xm.testmvp.MyForkApp;
 import com.xm.testmvp.di.MainActivityComponent;
-import com.xm.xmvp.di.base.SensibleActivity;
-import com.xm.xmvp.vu.Vu;
+import com.xm.xmvp.di.base.BaseMvpDiActivity;
+import com.xm.xmvpbase.vu.Vu;
 
 /**
  * created on 2019/1/27.
@@ -11,7 +11,7 @@ import com.xm.xmvp.vu.Vu;
  * email:45436460@qq.com
  * summary:
  */
-public abstract class BaseMainActivity<V extends Vu.ActivityVu> extends SensibleActivity<V> {
+public abstract class BaseMainActivity<V extends Vu.ActivityVu> extends BaseMvpDiActivity<V> {
     private MainActivityComponent activityComponent;
 
     public MainActivityComponent getMainActivityComponent() {

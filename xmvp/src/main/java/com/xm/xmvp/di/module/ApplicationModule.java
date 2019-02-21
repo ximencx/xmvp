@@ -8,8 +8,8 @@ import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 
 import com.xm.xmvp.application.AndroidApplication;
-import com.xm.xmvp.di.annotation.AroundQua;
-import com.xm.xmvp.di.annotation.DiConfig;
+import com.xm.xmvp.di.annotation.qua.AroundQua;
+import com.xm.xmvp.di.annotation.qua.DiConfig;
 import com.xm.xmvp.di.components.ActivityComponent;
 
 import javax.inject.Singleton;

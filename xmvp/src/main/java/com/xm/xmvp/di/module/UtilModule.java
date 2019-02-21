@@ -1,10 +1,6 @@
 package com.xm.xmvp.di.module;
 
-import android.content.Context;
-
 import com.google.gson.Gson;
-import com.xm.xmvp.di.annotation.AroundQua;
-import com.xm.xmvp.di.annotation.DiConfig;
 
 import javax.inject.Singleton;
 

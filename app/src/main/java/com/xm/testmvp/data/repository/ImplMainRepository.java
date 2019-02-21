@@ -1,8 +1,8 @@
 package com.xm.testmvp.data.repository;
 
 import com.xm.testmvp.data.datastore.IMainDataStore;
-import com.xm.xmvp.di.annotation.DiConfig;
-import com.xm.xmvp.di.annotation.StoreQua;
+import com.xm.xmvp.di.annotation.qua.DiConfig;
+import com.xm.xmvp.di.annotation.qua.StoreQua;
 
 import javax.inject.Inject;
 

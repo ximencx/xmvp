@@ -1,6 +1,6 @@
 package com.xm.xmvp.di.components;
 
-import com.xm.xmvp.di.annotation.PerActivity;
+import com.xm.xmvp.di.annotation.scope.PerActivity;
 import com.xm.xmvp.di.module.ActivityModule;
 
 import dagger.Subcomponent;

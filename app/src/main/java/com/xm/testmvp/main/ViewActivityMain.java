@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.xm.testmvp.R;
-import com.xm.xmvp.vu.ActivityView;
+import com.xm.xmvpbase.vu.ActivityView;
 
 /**
  * created on 2019/2/21.
