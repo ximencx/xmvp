@@ -19,19 +19,19 @@ import dagger.Provides;
 @Module
 public class ExecutorModule {
 
-    @Provides
-    @Singleton
-    ThreadExecutor provideThreadExecutor(ThreadExecutorImpl impl) {
-        return impl;
-    }
-
     @Singleton
     @Provides
     PostExecutionThread providePostExecutionThread(UIThreadImpl impl) {
         return impl;
     }
 
-    public interface Provider{
+    @Provides
+    @Singleton
+    ThreadExecutor provideThreadExecutor(ThreadExecutorImpl impl) {
+        return impl;
+    }
+
+    public interface Provider {
         ThreadExecutor threadExecutor();
 
         PostExecutionThread postExecutionThread();
