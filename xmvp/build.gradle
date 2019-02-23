@@ -36,6 +36,6 @@ dependencies {
     api 'io.reactivex:rxjava:1.0.14'
     api 'io.reactivex:rxandroid:1.0.1'
     api 'com.squareup:otto:1.3.8'
-    api project(':xmvpbase')
-//    api 'com.github.ximencx:xmvp:0.1'
+    //    api project(':xmvpbase')
+    api 'com.github.ximencx:xmvp:0.2'
 }

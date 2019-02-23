@@ -23,6 +23,4 @@ dependencies {
     annotationProcessor "com.google.dagger:dagger-compiler:2.14.1"
     api 'com.google.dagger:dagger:2.14.1'
     api project(':xmvp')
-//    implementation 'com.github.ximencx:xmvp:0.1'
-
 }
