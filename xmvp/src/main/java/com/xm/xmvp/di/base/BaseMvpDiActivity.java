@@ -1,6 +1,7 @@
 package com.xm.xmvp.di.base;
 
 import com.xm.xmvpbase.basemvp.BaseMvpActivity;
+import com.xm.xmvpbase.presenter.Presenter;
 import com.xm.xmvpbase.vu.Vu;
 
 /**
@@ -9,7 +10,7 @@ import com.xm.xmvpbase.vu.Vu;
  * email:45436460@qq.com
  * summary:支持dagger2
  */
-public abstract class BaseMvpDiActivity<V extends Vu.ActivityVu> extends BaseMvpActivity<V> {
+public abstract class BaseMvpDiActivity<V extends Vu.ActivityVu, P extends Presenter> extends BaseMvpActivity<V, P> {
 
 }
 

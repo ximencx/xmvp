@@ -1,6 +1,7 @@
 package com.xm.xmvp.di.base;
 
 import com.xm.xmvpbase.basemvp.BaseMvpFragment;
+import com.xm.xmvpbase.presenter.Presenter;
 import com.xm.xmvpbase.vu.Vu;
 
 /**
@@ -9,7 +10,7 @@ import com.xm.xmvpbase.vu.Vu;
  * email:45436460@qq.com
  * summary:支持dagger2
  */
-public abstract class BaseMvpDiFragment<V extends Vu.FragmentVu> extends BaseMvpFragment<V> {
-    
+public abstract class BaseMvpDiFragment<V extends Vu.FragmentVu, P extends Presenter> extends BaseMvpFragment<V, P> {
+
 }
 

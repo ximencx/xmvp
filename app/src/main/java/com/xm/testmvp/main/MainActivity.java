@@ -7,27 +7,25 @@ import android.widget.Toast;
 
 import com.xm.testmvp.domain.GetStringUseCase;
 import com.xm.testmvp.presenter.BaseMainActivity;
-import com.xm.xmvpbase.presenter.Presenter;
-import com.xm.xmvpbase.vu.Vu;
 
 import javax.inject.Inject;
 
 import rx.functions.Action1;
 
-public class MainActivity extends BaseMainActivity<VuActivityMain> implements PresenterMain {
+public class MainActivity extends BaseMainActivity<VuActivityMain,PresenterMain> implements PresenterMain {
 
     @Inject
     GetStringUseCase getStringUseCase;
 
     @Nullable
     @Override
-    public Vu.ActivityVu provideVu() {
+    public ViewActivityMain provideVu() {
         return new ViewActivityMain();
     }
 
     @Nullable
     @Override
-    public Presenter providePresenter() {
+    public PresenterMain providePresenter() {
         return this;
     }
 

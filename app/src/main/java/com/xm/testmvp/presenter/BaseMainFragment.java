@@ -4,6 +4,7 @@ import com.xm.testmvp.MyForkApp;
 import com.xm.testmvp.di.MainActivityComponent;
 import com.xm.testmvp.di.MainFragmentComponent;
 import com.xm.xmvp.di.base.BaseMvpDiFragment;
+import com.xm.xmvpbase.presenter.Presenter;
 import com.xm.xmvpbase.vu.Vu;
 
 /**
@@ -12,7 +13,7 @@ import com.xm.xmvpbase.vu.Vu;
  * email:45436460@qq.com
  * summary:
  */
-public abstract class BaseMainFragment<V extends Vu.FragmentVu> extends BaseMvpDiFragment<V> {
+public abstract class BaseMainFragment<V extends Vu.FragmentVu, P extends Presenter> extends BaseMvpDiFragment<V, P> {
 
     private MainFragmentComponent fragmentComponent;
 

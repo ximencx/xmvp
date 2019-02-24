@@ -17,9 +17,9 @@ import com.xm.xmvpbase.vu.Vu;
  * email:45436460@qq.com
  * summary:
  */
-public abstract class BaseMvpFragment<V extends Vu.FragmentVu> extends Fragment implements Presenter {
+public abstract class BaseMvpFragment<V extends Vu.FragmentVu, P extends Presenter> extends Fragment implements Presenter {
 
-    private V vu = null;
+    private V vu;
 
     @Nullable
     @Override
@@ -45,16 +45,16 @@ public abstract class BaseMvpFragment<V extends Vu.FragmentVu> extends Fragment 
         return null;
     }
 
-    private Vu.FragmentVu getFragmentVu() {
-        Vu.FragmentVu view = null;
+    private V getFragmentVu() {
+        V view = null;
         if (view == null) {
             view = provideVu();
         }
         return view;
     }
 
-    private Presenter getPresenter() {
-        Presenter presenter = null;
+    private P getPresenter() {
+        P presenter = null;
         if (presenter == null) {
             presenter = providePresenter();
         }
@@ -84,10 +84,10 @@ public abstract class BaseMvpFragment<V extends Vu.FragmentVu> extends Fragment 
     }
 
     @Nullable
-    public abstract Vu.FragmentVu provideVu();
+    public abstract V provideVu();
 
     @Nullable
-    public abstract Presenter providePresenter();
+    public abstract P providePresenter();
 
     public abstract void preMvpBinding(Bundle savedInstanceState);
 

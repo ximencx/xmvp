@@ -14,7 +14,7 @@ import com.xm.xmvpbase.vu.Vu;
  * email:45436460@qq.com
  * summary:
  */
-public abstract class BaseMvpActivity<V extends Vu.ActivityVu> extends AppCompatActivity implements Presenter {
+public abstract class BaseMvpActivity<V extends Vu.ActivityVu, P extends Presenter> extends AppCompatActivity implements Presenter {
 
     private V vu;
 
@@ -53,7 +53,7 @@ public abstract class BaseMvpActivity<V extends Vu.ActivityVu> extends AppCompat
         return provideVus();
     }
 
-    private Presenter getPresenter() {
+    private P getPresenter() {
         return providePresenter();
     }
 
@@ -80,10 +80,10 @@ public abstract class BaseMvpActivity<V extends Vu.ActivityVu> extends AppCompat
     }
 
     @Nullable
-    public abstract Vu.ActivityVu provideVu();
+    public abstract V provideVu();
 
     @Nullable
-    public abstract Presenter providePresenter();
+    public abstract P providePresenter();
 
     public abstract void preMvpBinding(Bundle savedInstanceState);
 
