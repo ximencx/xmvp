@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import com.xm.xmvp.application.AndroidApplication;
 import com.xm.xmvp.di.annotation.qua.AroundQua;
 import com.xm.xmvp.di.annotation.qua.DiConfig;
-import com.xm.xmvp.di.components.ActivityComponent;
 
 import javax.inject.Singleton;
 
@@ -23,7 +22,7 @@ import dagger.Provides;
  * email:45436460@qq.com
  * summary:
  */
-@Module(subcomponents = {ActivityComponent.class})
+@Module
 public class ApplicationModule {
 
     private final AndroidApplication application;

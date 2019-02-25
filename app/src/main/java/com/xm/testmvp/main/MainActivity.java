@@ -11,7 +11,7 @@ import com.xm.xmvp.usecase.BaseUseCase;
 
 import javax.inject.Inject;
 
-public class MainActivity extends BaseMainActivity<VuActivityMain,PresenterMain> implements PresenterMain {
+public class MainActivity extends BaseMainActivity<VuActivityMain, PresenterMain> implements PresenterMain {
 
     @Inject
     GetStringUseCase getStringUseCase;

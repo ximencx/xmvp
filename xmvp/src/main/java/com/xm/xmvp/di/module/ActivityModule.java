@@ -7,11 +7,10 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.xm.xmvp.di.base.BaseMvpDiActivity;
 import com.xm.xmvp.di.annotation.qua.AroundQua;
 import com.xm.xmvp.di.annotation.qua.DiConfig;
 import com.xm.xmvp.di.annotation.scope.PerActivity;
-import com.xm.xmvp.di.components.FragmentComponent;
+import com.xm.xmvp.di.base.BaseMvpDiActivity;
 
 import dagger.Module;
 import dagger.Provides;
@@ -22,7 +21,7 @@ import dagger.Provides;
  * email:45436460@qq.com
  * summary:
  */
-@Module(subcomponents = FragmentComponent.class)
+@Module
 public class ActivityModule {
 
     private final BaseMvpDiActivity baseMvpDiActivity;
