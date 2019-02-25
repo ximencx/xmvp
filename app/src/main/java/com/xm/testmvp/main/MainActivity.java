@@ -7,10 +7,9 @@ import android.widget.Toast;
 
 import com.xm.testmvp.domain.GetStringUseCase;
 import com.xm.testmvp.presenter.BaseMainActivity;
+import com.xm.xmvp.usecase.BaseUseCase;
 
 import javax.inject.Inject;
-
-import rx.functions.Action1;
 
 public class MainActivity extends BaseMainActivity<VuActivityMain,PresenterMain> implements PresenterMain {
 
@@ -19,7 +18,7 @@ public class MainActivity extends BaseMainActivity<VuActivityMain,PresenterMain>
 
     @Nullable
     @Override
-    public ViewActivityMain provideVu() {
+    public VuActivityMain provideVu() {
         return new ViewActivityMain();
     }
 
@@ -43,8 +42,7 @@ public class MainActivity extends BaseMainActivity<VuActivityMain,PresenterMain>
     public void onClickBtn1() {
         autoDestroy(getStringUseCase
                 .setParam1("我是参数")
-                .builder()
-                .subscribe(new Action1<String>() {
+                .runAction(new BaseUseCase.OnUseCaseActionListener<String>() {
                     @Override
                     public void call(String s) {
                         Toast.makeText(getActivity(), s, Toast.LENGTH_LONG).show();

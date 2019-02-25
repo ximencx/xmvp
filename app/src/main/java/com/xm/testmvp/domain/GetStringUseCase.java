@@ -23,8 +23,9 @@ public class GetStringUseCase extends BaseUseCase<String> {
         this.repository = repository;
     }
 
+
     @Override
-    public Observable<String> builder() {
+    protected Observable<String> buildObservable() {
         return Observable.just((String) getParam1() + repository.getString());
     }
 }

@@ -1,6 +1,7 @@
 package com.xm.testmvp.di;
 
 import com.xm.xmvp.di.module.ActivityModule;
+import com.xm.xmvp.di.module.ApplicationModule;
 import com.xm.xmvp.di.module.FragmentModule;
 
 /**
@@ -11,7 +12,7 @@ import com.xm.xmvp.di.module.FragmentModule;
  */
 public interface MainProviders {
 
-    interface MainComponentProvider extends MainModule.Provider, StoreModule.Provider {
+    interface MainComponentProvider extends MainModule.Provider, StoreModule.Provider, ApplicationModule.Provider {
     }
 
     interface MainActivityComponentProvider extends MainComponentProvider, ActivityModule.Provider {
