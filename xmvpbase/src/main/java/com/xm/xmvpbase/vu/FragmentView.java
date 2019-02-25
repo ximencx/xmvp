@@ -1,6 +1,5 @@
 package com.xm.xmvpbase.vu;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
@@ -11,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.xm.xmvpbase.basemvp.BaseMvpActivity;
+import com.xm.xmvpbase.basemvp.BaseMvpFragment;
 import com.xm.xmvpbase.presenter.Presenter;
 
 /**
@@ -36,9 +37,7 @@ public abstract class FragmentView<P extends Presenter> implements Vu.FragmentVu
     }
 
     @Override
-    public View initView(
-            @NonNull LayoutInflater inflater,
-            @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View initView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View contentView = inflater.inflate(provideLayoutRes(), container, false);
         bindBfView(this, contentView);
         return contentView;
@@ -67,19 +66,19 @@ public abstract class FragmentView<P extends Presenter> implements Vu.FragmentVu
     @LayoutRes
     protected abstract int provideLayoutRes();
 
-    public Fragment getFragment() {
-        return this.fragment;
+    public BaseMvpFragment getFragment() {
+        return (BaseMvpFragment) fragment;
     }
 
-    public Activity getActivity() {
-        if (this.fragment != null) {
-            return this.fragment.getActivity();
+    public BaseMvpActivity getActivity() {
+        if (fragment != null) {
+            return (BaseMvpActivity) fragment.getActivity();
         }
         return null;
     }
 
     public P getPresenter() {
-        return this.presenter;
+        return presenter;
     }
 
     public Context getContext() {

@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.xm.xmvpbase.basemvp.BaseMvpActivity;
 import com.xm.xmvpbase.presenter.Presenter;
 
 /**
@@ -64,7 +65,7 @@ public interface Vu {
          *
          * @param activity 与View绑定的Activity
          */
-        void bindActivity(@NonNull Activity activity);
+        void bindActivity(@NonNull BaseMvpActivity activity);
     }
 
     /**
@@ -75,9 +76,7 @@ public interface Vu {
          * 初始化View
          */
 
-        View initView(
-                @NonNull LayoutInflater inflater,
-                @Nullable ViewGroup container, @Nullable Bundle savedInstanceState);
+        View initView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState);
 
         /**
          * 用于绑定butterKnife用

@@ -1,6 +1,5 @@
 package com.xm.xmvpbase.vu;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
@@ -10,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import com.xm.xmvpbase.basemvp.BaseMvpActivity;
 import com.xm.xmvpbase.presenter.Presenter;
 
 /**
@@ -20,7 +20,7 @@ import com.xm.xmvpbase.presenter.Presenter;
  */
 public abstract class ActivityView<P extends Presenter> implements Vu.ActivityVu {
 
-    private Activity activity;
+    private BaseMvpActivity activity;
 
     private P presenter;
 
@@ -30,17 +30,17 @@ public abstract class ActivityView<P extends Presenter> implements Vu.ActivityVu
     }
 
     @Override
-    public void bindActivity(@NonNull Activity activity) {
+    public void bindActivity(@NonNull BaseMvpActivity activity) {
         this.activity = activity;
     }
 
     @Override
     public void initView(@Nullable Bundle savedInstanceState) {
-        if (this.activity != null) {
-            LayoutInflater layoutInflater = this.activity.getLayoutInflater();
+        if (activity != null) {
+            LayoutInflater layoutInflater = activity.getLayoutInflater();
             int layoutRes = provideLayoutRes();
             View contentView = layoutInflater.inflate(layoutRes, null, false);
-            this.activity.setContentView(contentView);
+            activity.setContentView(contentView);
             bindBfView(this, contentView);
         }
     }
@@ -64,12 +64,12 @@ public abstract class ActivityView<P extends Presenter> implements Vu.ActivityVu
         unBindBfView(this);
     }
 
-    public Activity getActivity() {
-        return this.activity;
+    public BaseMvpActivity getActivity() {
+        return activity;
     }
 
     public Context getContext() {
-        return this.activity;
+        return activity;
     }
 
     public P getPresenter() {
