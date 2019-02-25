@@ -49,6 +49,16 @@ public abstract class FragmentView<P extends Presenter> implements Vu.FragmentVu
         unBindBfView(this);
     }
 
+    @Override
+    public void bindBfView(Object object, View view) {
+
+    }
+
+    @Override
+    public void unBindBfView(Object object) {
+
+    }
+
     /**
      * 提供View相关的布局资源ID
      *

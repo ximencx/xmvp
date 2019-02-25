@@ -66,6 +66,16 @@ public abstract class FragmentActivityView<P extends Presenter> extends Fragment
     public void releaseView() {
     }
 
+    @Override
+    public void bindBfView(Object object, View view) {
+
+    }
+
+    @Override
+    public void unBindBfView(Object object) {
+
+    }
+
     /**
      * 提供View相关的布局资源ID
      *

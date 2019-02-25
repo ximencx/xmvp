@@ -9,7 +9,7 @@
 
 ## 依赖方式
 ```java  
-mvpbase:  compile 'com.github.ximencx:xmvp:0.3'
+mvpbase:  compile 'com.github.ximencx:xmvp:0.4'
  
 allprojects {
     repositories {
