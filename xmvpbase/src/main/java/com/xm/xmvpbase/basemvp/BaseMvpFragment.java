@@ -18,60 +18,53 @@ import com.xm.xmvpbase.vu.Vu;
  */
 public abstract class BaseMvpFragment<V extends Vu.FragmentVu, P extends Presenter> extends Fragment implements Presenter {
 
-    private V vu;
+    private V view = null;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         preMvpBinding(savedInstanceState);
-
+        //初始化组件
         Presenter presenter = getPresenter();
-
         Vu.FragmentVu view = getFragmentVu();
-
+        //绑定view
         if (presenter != null) {
             presenter.bindVu(view);
         }
-
         if (view != null) {
             view.bindPresenter(presenter);
             view.bindFragment(this);
             View targetView = view.initView(inflater, container, savedInstanceState);
+            this.view.bindBfView(this, targetView);
             afterMvpBinding(savedInstanceState);
             return targetView;
         }
         return null;
     }
 
+    @Override
+    public void onDestroyView() {
+        view.releaseView();
+        view.unBindBfView(getFragment());
+        view = null;
+        super.onDestroyView();
+    }
+
     private V getFragmentVu() {
-        V view = null;
-        if (view == null) {
-            view = provideVu();
-        }
-        return view;
+        return provideVu();
     }
 
     private P getPresenter() {
-        P presenter = null;
-        if (presenter == null) {
-            presenter = providePresenter();
-        }
-        return presenter;
+        return providePresenter();
     }
-
 
     @Override
     public void bindVu(@Nullable Vu vu) {
-        if (vu == null) {
-            return;
-        }
-        //noinspection unchecked
-        this.vu = ((V) vu);
+        this.view = (V) vu;
     }
 
     public V getVu() {
-        return vu;
+        return view;
     }
 
     public BaseMvpFragment getFragment() {

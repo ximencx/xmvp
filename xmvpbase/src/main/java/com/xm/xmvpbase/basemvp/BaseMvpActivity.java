@@ -15,40 +15,39 @@ import com.xm.xmvpbase.vu.Vu;
  */
 public abstract class BaseMvpActivity<V extends Vu.ActivityVu, P extends Presenter> extends AppCompatActivity implements Presenter {
 
-    private V vu;
+    private V view = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         preMvpBinding(savedInstanceState);
-
+        //初始化组件
         Presenter presenter = getPresenter();
-
-        Vu.ActivityVu[] views = getActivityVus();
-
+        Vu.ActivityVu view = getActivityVus();
+        //绑定组件
         if (presenter != null) {
-            if (views != null) {
-                for (Vu.ActivityVu view : views) {
-                    presenter.bindVu(view);
-                }
+            if (view != null) {
+                presenter.bindVu(view);
             }
         }
-
-        if (views != null) {
-            for (Vu.ActivityVu view : views) {
-                if (view != null) {
-                    view.bindPresenter(presenter);
-                    //设置和View关联的Activity
-                    view.bindActivity(this);
-                    view.initView(savedInstanceState);
-                }
-            }
+        if (view != null) {
+            view.bindPresenter(presenter);
+            //设置和View关联的Activity
+            view.bindActivity(this);
+            view.initView(savedInstanceState);
         }
         afterMvpBinding(savedInstanceState);
     }
 
-    private Vu.ActivityVu[] getActivityVus() {
+    @Override
+    protected void onDestroy() {
+        view.releaseView();
+        view.unBindBfView(this);
+        view = null;
+        super.onDestroy();
+    }
+
+    private Vu.ActivityVu getActivityVus() {
         return provideVus();
     }
 
@@ -56,9 +55,8 @@ public abstract class BaseMvpActivity<V extends Vu.ActivityVu, P extends Present
         return providePresenter();
     }
 
-    public Vu.ActivityVu[] provideVus() {
-        Vu.ActivityVu activityVu = provideVu();
-        return new Vu.ActivityVu[]{activityVu};
+    private Vu.ActivityVu provideVus() {
+        return provideVu();
     }
 
     @Override
@@ -66,12 +64,11 @@ public abstract class BaseMvpActivity<V extends Vu.ActivityVu, P extends Present
         if (vu == null) {
             return;
         }
-        //noinspection unchecked
-        this.vu = ((V) vu);
+        this.view = ((V) vu);
     }
 
     public V getVu() {
-        return vu;
+        return view;
     }
 
     public BaseMvpActivity getActivity() {

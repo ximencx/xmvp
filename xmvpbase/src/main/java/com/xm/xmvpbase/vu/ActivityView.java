@@ -61,7 +61,8 @@ public abstract class ActivityView<P extends Presenter> implements Vu.ActivityVu
 
     @Override
     public void releaseView() {
-        unBindBfView(this);
+        presenter = null;
+        activity = null;
     }
 
     public BaseMvpActivity getActivity() {

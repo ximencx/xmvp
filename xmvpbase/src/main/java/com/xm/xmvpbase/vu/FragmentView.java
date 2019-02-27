@@ -2,6 +2,7 @@ package com.xm.xmvpbase.vu;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -26,6 +27,8 @@ public abstract class FragmentView<P extends Presenter> implements Vu.FragmentVu
 
     private P presenter;
 
+    private View rootView;
+
     @Override
     public void bindPresenter(@Nullable Presenter presenter) {
         this.presenter = (P) presenter;
@@ -38,14 +41,15 @@ public abstract class FragmentView<P extends Presenter> implements Vu.FragmentVu
 
     @Override
     public View initView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View contentView = inflater.inflate(provideLayoutRes(), container, false);
-        bindBfView(this, contentView);
-        return contentView;
+        rootView = inflater.inflate(provideLayoutRes(), container, false);
+        return rootView;
     }
 
     @Override
     public void releaseView() {
-        unBindBfView(this);
+        rootView = null;
+        presenter = null;
+        fragment = null;
     }
 
     @Override
@@ -56,6 +60,10 @@ public abstract class FragmentView<P extends Presenter> implements Vu.FragmentVu
     @Override
     public void unBindBfView(Object object) {
 
+    }
+
+    public <T extends View> T findViewById(@IdRes int res) {
+        return rootView.findViewById(res);
     }
 
     /**
