@@ -8,8 +8,11 @@
 **demo**：实现了mvp+Dagger2+domain的用法；
 
 ## 依赖方式
-```java  
-mvpbase:  compile 'com.github.ximencx:xmvp:0.7'
+```groovy 
+mvpbase:
+api ('com.github.ximencx:xmvp:0.7'){
+        exclude module: 'appcompat-v7'
+    }
  
 allprojects {
     repositories {
