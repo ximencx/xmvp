@@ -1,15 +1,12 @@
 package com.xm.xmvpbase;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 
-/**
- * created on 2019/1/26.
- * author:wangkezhi
- * email:45436460@qq.com
- * summary:
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
+/*
  */
 public class FragmentStack {
 

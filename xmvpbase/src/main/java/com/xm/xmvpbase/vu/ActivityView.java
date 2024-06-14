@@ -2,21 +2,21 @@ package com.xm.xmvpbase.vu;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.IdRes;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
+
+import androidx.annotation.IdRes;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
 
 import com.xm.xmvpbase.basemvp.BaseMvpActivity;
 import com.xm.xmvpbase.presenter.Presenter;
 
+import org.jetbrains.annotations.Nullable;
+
 /**
- * created on 2019/1/26.
- * author:wangkezhi
- * email:45436460@qq.com
- * summary:
+ *
+ * @param <P>
  */
 public abstract class ActivityView<P extends Presenter> implements Vu.ActivityVu {
 

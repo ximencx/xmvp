@@ -1,6 +1,7 @@
 package com.xm.xmvp.di.module.impl;
 
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import rx.Scheduler;
 

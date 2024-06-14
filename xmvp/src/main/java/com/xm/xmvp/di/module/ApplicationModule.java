@@ -4,8 +4,10 @@ import android.app.ActivityManager;
 import android.app.AlarmManager;
 import android.app.NotificationManager;
 import android.content.Context;
-import android.support.annotation.NonNull;
+
 import android.view.LayoutInflater;
+
+import androidx.annotation.NonNull;
 
 import com.xm.xmvp.application.AndroidApplication;
 import com.xm.xmvp.di.annotation.qua.AroundQua;

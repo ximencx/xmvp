@@ -2,7 +2,7 @@ package com.xm.testmvp.main;
 
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.widget.Toast;
 
 import com.xm.testmvp.domain.GetStringUseCase;

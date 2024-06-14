@@ -1,17 +1,16 @@
 package com.xm.xmvpbase.basemvp;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.xm.xmvpbase.presenter.Presenter;
 import com.xm.xmvpbase.vu.Vu;
 
 /**
- * created on 2019/1/26.
- * author:wangkezhi
- * email:45436460@qq.com
- * summary:
+ * @param <V>
+ * @param <P>
  */
 public abstract class BaseMvpActivity<V extends Vu.ActivityVu, P extends Presenter> extends AppCompatActivity implements Presenter {
 

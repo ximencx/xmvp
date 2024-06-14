@@ -1,25 +1,25 @@
 package com.xm.xmvpbase.vu;
 
+
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.IdRes;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.IdRes;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.xm.xmvpbase.basemvp.BaseMvpActivity;
 import com.xm.xmvpbase.basemvp.BaseMvpFragment;
 import com.xm.xmvpbase.presenter.Presenter;
 
 /**
- * created on 2019/1/26.
- * author:wangkezhi
- * email:45436460@qq.com
- * summary:
+ *
+ * @param <P>
  */
 public abstract class FragmentView<P extends Presenter> implements Vu.FragmentVu {
 

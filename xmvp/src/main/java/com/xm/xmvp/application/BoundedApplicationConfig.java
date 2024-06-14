@@ -1,6 +1,7 @@
 package com.xm.xmvp.application;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
+
 
 /**
  * created on 2019/1/26.

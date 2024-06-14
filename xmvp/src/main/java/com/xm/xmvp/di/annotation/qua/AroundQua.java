@@ -1,6 +1,7 @@
 package com.xm.xmvp.di.annotation.qua;
 
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;

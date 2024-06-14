@@ -1,17 +1,15 @@
 package com.xm.xmvpbase;
 
 import android.app.Activity;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.util.Iterator;
 import java.util.LinkedList;
 
 /**
- * created on 2019/1/26.
- * author:wangkezhi
- * email:45436460@qq.com
- * summary:
+ *
  */
 public class ActivityStack {
 

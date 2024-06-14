@@ -1,14 +1,11 @@
 package com.xm.xmvpbase.presenter;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.xm.xmvpbase.vu.Vu;
 
 /**
- * created on 2019/1/26.
- * author:wangkezhi
- * email:45436460@qq.com
- * summary:
+ *
  */
 public interface Presenter {
 
