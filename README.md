@@ -10,9 +10,7 @@
 ## 依赖方式
 ```groovy 
 mvpbase:
-api ('com.github.ximencx:xmvp:0.7'){
-        exclude module: 'appcompat-v7'
-    }
+api ('com.github.ximencx:xmvpbase:0.81')
  
 allprojects {
     repositories {
