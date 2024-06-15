@@ -10,7 +10,7 @@
 ## 依赖方式
 ```groovy 
 mvpbase:
-api ('com.github.ximencx.xmvp:xmvpbase:0.83')
+api ('com.github.ximencx.xmvp:xmvpbase:0.85')
  
 allprojects {
     repositories {
